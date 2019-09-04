@@ -5,3 +5,13 @@ body {
 button {
     border: solid red 1px;
 }
+
+#computerCroupier, #playerCroupier {
+    font-size: xx-large;
+}
+
+#buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

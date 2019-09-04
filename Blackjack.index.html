@@ -6,14 +6,29 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<p id ="croupier"></p>
-<div id="card"></div>
-<div id="hand"></div>
-<button id="hitme">Hit Me!</button>
-<button id="stand">Stand</button>
-<button id="start">Start Game</button>
+<div id="wrapper">
+<h1 id="endgametext"></h1>
+    <!--<img id="cardTest" alt="cardtest" src="img/Seven.png">-->
+
+    <div id="playersection">
+        <p id="playerCroupier"></p>
+
+        <div id="p1CardsDiv"></div>
+    </div>
 
 
+    <div id="computersection">
+        <p id="computerCroupier"></p>
+
+        <div id="pcCardsDiv"></div>
+    </div>
+    <div id="buttons">
+        <button id="hitme">Hit Me!</button>
+        <button id="stand">Stand</button>
+        <button id="reset">Reset</button>
+    </div>
+
+</div>
 <script src="script.js"></script>
 </body>
 </html>
