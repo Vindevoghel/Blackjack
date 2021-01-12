@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Blackjack</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-<div id="wrapper">
-<h1 id="endgametext"></h1>
-    <!--<img id="cardTest" alt="cardtest" src="img/Seven.png">-->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="neonwrapper">
+        <h1 id="neon">
+          <span class="neon1">B</span>
+          <span class="neon2">l</span>
+          <span class="neon1">a</span>
+          <span class="neon2">c</span>
+          <span class="neon1">k</span>
+          <span class="neon2">J</span>
+          <span class="neon1">a</span>
+          <span class="neon2">c</span>
+          <span class="neon1">k</span>
+        </h1>
+      </header>
+      <section id="game" id="gamebox">
+        <!--both these sections flex rows, maybe start off with backside of carts and then replacing them with drawn ones-->
+        <div id="dealersection"></div>
+        <div id="scoressection">
+          <!--maybe on left side player cards, middle how many cards in deck, and right dealer score-->
+        </div>
+        <div id="humansection">
 
-    <div id="playersection">
-        <p id="playerCroupier"></p>
-
-        <div id="p1CardsDiv"></div>
-    </div>
-
-
-    <div id="computersection">
-        <p id="computerCroupier"></p>
-
-        <div id="pcCardsDiv"></div>
-    </div>
-    <div id="buttons">
+        </div>
+      </section>
+      <section id="buttonwrapper">
         <button id="start">Start Game</button>
         <button id="hitme">Hit Me!</button>
         <button id="stand">Stand</button>
-        <button id="reset">Reset</button>
+        <button id="reset">Reset Game</button>
+      </section>
     </div>
-
-</div>
-<script src="Card.js"></script>
-<script src="Deck.js"></script>
-<script src="Player.js"></script>
-<script src="Blackjack.js"></script>
-<script src="script.js"></script>
-</body>
+    <script src="Card.js"></script>
+    <script src="Deck.js"></script>
+    <script src="Player.js"></script>
+    <script src="Blackjack.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
