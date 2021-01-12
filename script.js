@@ -1,59 +1,75 @@
 const startBut = document.getElementById("start");
 const hitBut = document.getElementById("hitme");
 const standBut = document.getElementById("stand");
-const playerCroupier = document.getElementById("playerCroupier");
-const computerCroupier = document.getElementById("computerCroupier");
-const reset = document.getElementById("reset");
-const p1CardsDiv = document.getElementById("p1CardsDiv");
-const pcCardsDiv = document.getElementById("pcCardsDiv");
+const resetBut = document.getElementById("reset");
+const humanDiv = document.getElementById("humansection");
+const dealerDiv = document.getElementById("dealersection");
+const scoreDiv = document.getElementById("scoressection");
 let img = document.createElement("img");
 
-playerCroupier.innerText = "Hit or Stand?";
-computerCroupier.innerText = "Computer is waiting for turn.";
-p1CardsDiv.innerHTML = "";
-pcCardsDiv.innerHTML = "";
-hitBut.style.display = "inline";
-standBut.style.display = "inline";
+humanDiv.innerHTML = "";
+dealerDiv.innerHTML = "";
+hitBut.style.display = "none";
+standBut.style.display = "none";
+resetBut.style.display = "none";
 
 const askForName = () => {
   return window.prompt("What is your name?");
 };
 
-window.onload = playGame;
+//window.onload = playGame;
+
+startBut.addEventListener("click", function () {
+  playGame();
+});
 
 function playGame() {
-    let blackjack = new Blackjack(askForName());
-    console.dir(blackjack);
-  
-    hitBut.addEventListener("click", function () {
-      playHand(blackjack.humanPlayer);
-    });
-    
-    standBut.addEventListener("click", function () {
-      pcHand();
-    });
-  
-    reset.addEventListener("click", function () {
-      blackjack = new Blackjack(askForName());
-      restart();
-    });
-  };
+  let blackjack = new Blackjack(askForName());
+  console.dir(blackjack);
+
+  startBut.style.display = "none";
+  hitBut.style.display = "inline-block";
+  standBut.style.display = "inline-block";
+  resetBut.style.display = "inline-block";
+
+  hitBut.addEventListener("click", function () {
+    playHand(blackjack.humanPlayer);
+  });
+
+  standBut.addEventListener("click", function () {
+    playDealerHand = () => setTimeout(playHand(blackjack.dealer), 2000);
+    playDealerHand();
+  });
+
+  reset.addEventListener("click", function () {
+    restart();
+    blackjack = new Blackjack(askForName());
+  });
+}
 
 function restart() {
-  p1Cards = [];
-  pcCards = [];
-  playerCroupier.innerText = "Hit or Stand?";
-  computerCroupier.innerText = "Computer is waiting for turn.";
-  p1CardsDiv.innerHTML = "";
-  pcCardsDiv.innerHTML = "";
+  humanDiv.innerHTML = "";
+  dealerDiv.innerHTML = "";
+  scoreDiv.innerText = "";
   hitBut.style.display = "inline";
   standBut.style.display = "inline";
 }
 
 function playHand(player) {
   let card = blackjack.drawCard(player);
-  img.src = card.image;
-  p1CardsDiv.appendChild(img.cloneNode(true));
 
-  playerCroupier.innerText = blackjack.setScore(player);
+  img.src = card.image;
+  
+  if (player.name !== "Dealer") {
+    humanDiv.appendChild(img.cloneNode(true));
+  }
+  
+  if (player.name === "Dealer") {
+    dealerDiv.appendChild(img.cloneNode(true));
+    
+    if (player.score < 18) {
+      playDealerHand();
+    }
+  }
+  scoreDiv.innerText = blackjack.setScore(player);
 }

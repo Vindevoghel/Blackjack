@@ -5,6 +5,6 @@ class Card {
         this.rank = rank;
         this.value = value;
         this.name = rank + " of " + suit;
-        this.image = "img/" + suit + rank + ".png";
+        this.image = "assets/img/" + suit + rank + ".png";
     }
 }

@@ -56,7 +56,7 @@ class Blackjack {
 
 
 //Why is this needed?
-//let blackjack = new Blackjack("jef");
+let blackjack = new Blackjack("jef");
 //console.dir(blackjack.player)
 //console.dir(blackjack.dealer)
 //console.dir(blackjack.deck)
